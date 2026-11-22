@@ -32,5 +32,8 @@
         "path": "./themes/webcimes-dark-color-theme.json"
       }
     ]
+  },
+  "devDependencies": {
+    "@vscode/vsce": "4.1.1"
   }
 }
