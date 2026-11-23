@@ -53,4 +53,4 @@ MIT © WebCimes
 
 Use Node.js 22 or later and run `npm ci`. Run `make dev` to serve the preview with Python 3, or `make pack` to create an installable VSIX.
 
-For a new Marketplace release, update the version in `package.json` and refresh `package-lock.json`. Run `make pack`, commit the release changes, then run `make push`, `make publish`, and `make tag`.
+For a new Marketplace release, update the version in `package.json` and refresh `package-lock.json`. Commit the release changes on `main`, then run `make release` to package the VSIX, push `main`, publish the archive to the Marketplace, and push the version tag.
