@@ -4,7 +4,7 @@
   "description": "A carefully balanced dark theme with refined syntax colors and Modern UI support.",
   "version": "1.0.2",
   "publisher": "webcimes",
-  "icon": "images/webcimes-dark-theme.png",
+  "icon": "images/webcimes-dark-theme-icon.png",
   "license": "MIT",
   "repository": {
     "type": "git",
