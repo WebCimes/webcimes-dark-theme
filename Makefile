@@ -37,6 +37,18 @@ release:
 	@test -z "$$(git status --porcelain)" || { echo "Commit the release changes first." >&2; exit 1; }
 	$(MAKE) pack
 	$(MAKE) push
+	@set -e; \
 	version=$$(node -p 'require("./package.json").version'); \
-	npm exec -- vsce publish --packagePath "webcimes-dark-theme-$$version.vsix"
+	extension=$$(node -p 'const { publisher, name } = require("./package.json"); publisher + "." + name'); \
+	npm exec -- vsce publish --packagePath "webcimes-dark-theme-$$version.vsix"; \
+	echo "Waiting for $$extension@$$version on the VS Code Marketplace..."; \
+	for attempt in 1 2 3 4 5 6 7 8 9 10 11 12; do \
+		if listing=$$(npm exec -- vsce show "$$extension" --json 2>/dev/null) && \
+			printf '%s' "$$listing" | node -e 'const listing = JSON.parse(require("node:fs").readFileSync(0, "utf8")); process.exit(listing.versions.some(({ version }) => version === process.argv[1]) ? 0 : 1);' "$$version" 2>/dev/null; then \
+			exit 0; \
+		fi; \
+		if [ "$$attempt" -lt 12 ]; then sleep 5; fi; \
+	done; \
+	echo "Could not confirm Marketplace publication for $$extension@$$version. Check the listing before running make tag." >&2; \
+	exit 1
 	$(MAKE) tag
