@@ -2,7 +2,7 @@
   "name": "webcimes-dark-theme",
   "displayName": "Webcimes Dark Theme",
   "description": "A carefully balanced dark theme with refined syntax colors and Modern UI support.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "webcimes",
   "icon": "images/webcimes-dark-theme.png",
   "license": "MIT",
@@ -21,9 +21,22 @@
   "engines": {
     "vscode": "^1.90.0"
   },
-  "categories": ["Themes"],
-  "keywords": ["theme", "dark", "php", "vue", "modern ui"],
-  "files": ["themes", "images", "README.md", "LICENSE"],
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "dark",
+    "php",
+    "vue",
+    "modern ui"
+  ],
+  "files": [
+    "themes",
+    "images",
+    "README.md",
+    "LICENSE"
+  ],
   "contributes": {
     "themes": [
       {
